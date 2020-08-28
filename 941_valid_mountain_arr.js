@@ -33,16 +33,15 @@ var validMountainArray = function (A) {
   if (A.length < 3) {
     return false;
   }
-  if (i < A.length - 1 && j > 0) {
-    while (A[i] < A[i + 1]) {
-      i++;
-    }
-    while (A[j] < A[j - 1]) {
-      j--;
-    }
-    if (i === j && i !== A.length - 1 && j !== 0) {
-      return true;
-    }
+
+  while (A[i] < A[i + 1] && i < A.length - 1) {
+    i++;
+  }
+  while (A[j] < A[j - 1] && j > 0) {
+    j--;
+  }
+  if (i === j && i < A.length - 1 && j > 0) {
+    return true;
   }
   return false;
 };
