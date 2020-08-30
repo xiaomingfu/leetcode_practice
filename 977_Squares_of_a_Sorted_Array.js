@@ -1,5 +1,5 @@
 var sortedSquares = function (A) {
-  for (let i = 0; i < A.length - 1; i++) {
+  for (let i = 0; i < A.length; i++) {
     A[i] = Math.abs(A[i]);
   }
   let min = Math.min(...A);
