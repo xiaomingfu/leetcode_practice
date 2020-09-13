@@ -7,19 +7,14 @@ You may assume the integer does not contain any leading zero, except the number 
 */
 
 var plusOne = function (digits) {
-  let lastIdx = digits.length - 1;
-  let res = [];
-  let carry = 0;
-  let digit = 0;
-  digits[lastIdx] = digits[lastIdx] + 1;
-  for (let i = lastIdx; i >= 0; i--) {
-    digits[i] = digits[i] + carry;
-    digit = digits[i] % 10;
-    carry = digits[i] / 10;
-    res.push(digit);
+  let len = digits.length;
+  for (let i = len - 1; i >= 0; i--) {
+    digits[i]++;
+    digits[i] %= 10;
+    if (digits[i] != 0) {
+      return digits;
+    }
   }
-  if (carry !== 0) {
-    res.push(carry);
-  }
-  res.reverse();
+  digits.unshift(1);
+  return digits;
 };
