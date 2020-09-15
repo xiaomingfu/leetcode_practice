@@ -15,3 +15,18 @@ var twoSum = function (nums, target) {
     }
   }
 };
+
+// HashMap
+var twoSum = function (nums, target) {
+  let dic = {};
+  let a;
+  let b;
+  for (let i = 0; i < nums.length; i++) {
+    a = nums[i];
+    b = target - a;
+    if (dic[b] !== undefined) {
+      return [dic[b], i];
+    }
+    dic[a] = i;
+  }
+};
