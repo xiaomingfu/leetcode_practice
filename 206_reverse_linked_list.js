@@ -1,19 +1,14 @@
 var reverseList = function (head) {
   let cur = head;
-  let ls = [];
+  let arr = [];
   while (cur) {
-    ls.push(cur.val);
+    arr.push(cur.val);
     cur = cur.next;
   }
 
-  for (let i = 0, j = ls.length - 1; i < j; i++, j--) {
-    let temp = ls[i];
-    ls[i] = ls[j];
-    ls[j] = temp;
-  }
   cur = head;
-  for (let i = 0; i < ls.length; i++) {
-    cur.val = ls[i];
+  for (let i = 0; i < arr.length; i++) {
+    cur.val = arr[arr.length - 1 - i];
     cur = cur.next;
   }
   return head;
