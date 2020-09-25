@@ -22,3 +22,40 @@ var isPalindrome = function (head) {
   }
   return true;
 };
+
+// dummyhead solution
+var isPalindrome = function (head) {
+  // get length of list
+  let cur = head;
+  let len = 0;
+  while (cur) {
+    cur = cur.next;
+    len++;
+  }
+
+  // reverse first half
+  let dummy = new ListNode(0);
+  let node;
+  let temp;
+  let mid = Math.floor(len / 2);
+  cur = head;
+  while (mid > 0) {
+    node = cur;
+    cur = cur.next;
+    temp = dummy.next;
+    dummy.next = node;
+    node.next = temp;
+    mid--;
+  }
+  if (len % 2 !== 0) {
+    cur = cur.next;
+  }
+  while (cur) {
+    if (node.val !== cur.val) {
+      return false;
+    }
+    node = node.next;
+    cur = cur.next;
+  }
+  return true;
+};
